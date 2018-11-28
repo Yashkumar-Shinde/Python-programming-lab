@@ -1,4 +1,4 @@
-n=int(input())#Rohan Suryavanshi,gr no.11810803
+n=int(input())
 l=[] 
 a=0
 b=1
