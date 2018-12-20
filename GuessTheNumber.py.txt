@@ -1,0 +1,44 @@
+from tkinter import *
+import random
+
+computer_guess = random.randint(1,15)
+def check():
+
+    user_guess = int(txt_guess.get())
+    if user_guess < computer_guess:
+        msg="LOWER!"
+    elif user_guess > computer_guess:
+        msg="HIGHER!"
+    elif user_guess == computer_guess:
+        msg="Correct!"
+    else:
+        msg="Something went wrong..."
+    lbl_result["text"]=msg
+root=Tk()
+
+root.title("GUESSING GAME")
+
+canvas=Canvas(root,width=600,height=420)
+canvas.pack()
+
+img=PhotoImage(file="C:\\Users\\Sahil\\Pictures\\F2qRmLhRnmebc8jJAUjr_GuessTheNumber@3x.jpg")
+canvas.create_image(0,0, anchor=NW,image=img)
+
+lbl_title=Label(root,text="Welcome to the Guessing Game!",font="Times 16 bold")
+lbl_title.pack(side="top")
+lbl_result=Label(root,text="Good Luck!")
+lbl_result.pack()
+
+btn_check=Button(root,text="Check",fg="green",font="Times 16 bold",command=check)
+btn_check.pack(side="left")
+
+btn_reset=Button(root,text="Reset",font="Times 16 bold",fg="red")
+btn_reset.pack(side="right")
+
+txt_guess=Entry(root,width=6)
+txt_guess.pack()
+
+btn_quit=Button(root,text="quit",font="Times 16 bold",command=quit)
+btn_quit.pack(side="bottom")
+
+root.mainloop()
